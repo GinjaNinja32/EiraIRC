@@ -27,13 +27,13 @@ public class OverlayJoinLeave extends Gui {
 
     private final List<JoinLeaveMessage> messages = new ArrayList<>();
     private final Minecraft mc;
-    private final FontRenderer fontRenderer;
+    private final FontRenderer fontRendererObj;
     private IConfigProperty<Integer> visibleTime;
     private IConfigProperty<Float> scale;
 
-    public OverlayJoinLeave(Minecraft mc, FontRenderer fontRenderer) {
+    public OverlayJoinLeave(Minecraft mc, FontRenderer fontRendererObj) {
         this.mc = mc;
-        this.fontRenderer = fontRenderer;
+        this.fontRendererObj = fontRendererObj;
     }
 
     public void setVisibleTime(IConfigProperty<Integer> visibleTime) {
@@ -49,7 +49,7 @@ public class OverlayJoinLeave extends Gui {
             return;
         }
         for (JoinLeaveMessage message : messages) {
-            message.y -= fontRenderer.FONT_HEIGHT + 2;
+            message.y -= fontRendererObj.FONT_HEIGHT + 2;
         }
         messages.add(new JoinLeaveMessage(component, 0, visibleTime.get()));
     }
@@ -77,7 +77,7 @@ public class OverlayJoinLeave extends Gui {
                 messages.remove(i);
             }
             String formattedText = message.chatComponent.getFormattedText();
-            fontRenderer.drawString(formattedText, -fontRenderer.getStringWidth(formattedText) - 16, message.y, 16777215 | (alpha << 24), true);
+            fontRendererObj.drawString(formattedText, -fontRendererObj.getStringWidth(formattedText) - 16, message.y, 16777215 | (alpha << 24), true);
         }
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();

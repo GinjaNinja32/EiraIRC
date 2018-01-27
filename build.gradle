@@ -25,12 +25,10 @@ group = "net.blay09.mods"
 archivesBaseName = "eirairc"
 
 minecraft {
-    //version = "1.8.9-11.15.0.1684"
-    version = "1.11.2-13.20.0.2228"
+    version = "1.10.2-12.18.3.2185"
     runDir = "run"
     
-    //mappings = "stable_20"
-    mappings = 'snapshot_20170301'
+    mappings = "stable_29"
 }
 
 processResources
@@ -64,9 +62,9 @@ repositories {
 }
 
 dependencies {
-    deobfCompile 'net.blay09.mods:EiraMoticons_1.11:5.2.1'
+    deobfCompile 'net.blay09.mods:EiraMoticons_1.10.2:4.3.6'
     deobfCompile 'us.dynmap:DynmapCoreAPI:2.4'
-    deobfCompile name: 'mod-tabbychat-2-2.2.1-mc1.11.2'
+    deobfCompile name: 'mod-tabbychat-2-2.1.2-mc1.10.2'
 }
 
 jar {

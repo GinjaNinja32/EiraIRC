@@ -12,7 +12,7 @@ public class GuiAdvancedTextField extends GuiTextField {
     private static final int COLOR_ENABLED = 14737632;
     private static final int COLOR_DISABLED = 7368816;
 
-    private final FontRenderer fontRenderer;
+    private final FontRenderer fontRendererObj;
     private String defaultText;
     private boolean defaultTextDisplayOnly;
     private char passwordChar = 0;
@@ -25,7 +25,7 @@ public class GuiAdvancedTextField extends GuiTextField {
 
     public GuiAdvancedTextField(int id, FontRenderer par1FontRenderer, int par2, int par3, int par4, int par5) {
         super(id, par1FontRenderer, par2, par3, par4, par5);
-        this.fontRenderer = par1FontRenderer;
+        this.fontRendererObj = par1FontRenderer;
         setMaxStringLength(Integer.MAX_VALUE);
     }
 
@@ -38,7 +38,7 @@ public class GuiAdvancedTextField extends GuiTextField {
             return true;
         }
         if (textCentered) {
-            int textWidth = fontRenderer.getStringWidth(getText());
+            int textWidth = fontRendererObj.getStringWidth(getText());
             textOffsetX = getWidth() / 2 - textWidth / 2;
         }
         return result;
@@ -65,7 +65,7 @@ public class GuiAdvancedTextField extends GuiTextField {
         int cursorPosition = getCursorPosition();
         super.setText(text);
         if (textCentered) {
-            int textWidth = fontRenderer.getStringWidth(text);
+            int textWidth = fontRendererObj.getStringWidth(text);
             textOffsetX = getWidth() / 2 - textWidth / 2;
         }
         setCursorPosition(cursorPosition);

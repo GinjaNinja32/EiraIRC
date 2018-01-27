@@ -44,7 +44,7 @@ public class GuiModpackConfirmation extends EiraGuiScreen {
             }
         }
         lblInfo = new GuiLabel(infoText, 0, height / 2, -1);
-        lblInfo.posY -= lblInfo.getHeight() / 2f + Minecraft.getMinecraft().fontRenderer.FONT_HEIGHT;
+        lblInfo.posY -= lblInfo.getHeight() / 2f + Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT;
         lblInfo.setHAlignment(GuiLabel.HAlignment.Center, width);
         labelList.add(lblInfo);
 

@@ -46,6 +46,6 @@ public class GuiScreenshotBigPreview extends EiraGuiScreen {
         image.draw(0, 0, width, height, zLevel);
 
         String s = I19n.format("eirairc:gui.image.clickToGoBack");
-        drawString(fontRenderer, s, width - fontRenderer.getStringWidth(s) - 5, height - fontRenderer.FONT_HEIGHT - 5, Globals.TEXT_COLOR);
+        drawString(fontRendererObj, s, width - fontRendererObj.getStringWidth(s) - 5, height - fontRendererObj.FONT_HEIGHT - 5, Globals.TEXT_COLOR);
     }
 }

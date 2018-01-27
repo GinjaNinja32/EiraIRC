@@ -69,7 +69,7 @@ public class GuiChannelConfig extends GuiTabPage implements GuiYesNoCallback {
         } else {
             oldText = config.getName();
         }
-        txtName = new GuiAdvancedTextField(0, fontRenderer, leftX, topY + 15, 100, 15);
+        txtName = new GuiAdvancedTextField(0, fontRendererObj, leftX, topY + 15, 100, 15);
         txtName.setText(oldText);
         textFieldList.add(txtName);
 
@@ -80,7 +80,7 @@ public class GuiChannelConfig extends GuiTabPage implements GuiYesNoCallback {
         } else {
             oldText = AuthManager.getChannelPassword(config.getIdentifier());
         }
-        txtPassword = new GuiAdvancedTextField(1, fontRenderer, leftX, topY + 55, 100, 15);
+        txtPassword = new GuiAdvancedTextField(1, fontRendererObj, leftX, topY + 55, 100, 15);
         txtPassword.setText(oldText);
         txtPassword.setDefaultPasswordChar();
         textFieldList.add(txtPassword);

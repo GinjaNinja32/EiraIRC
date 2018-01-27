@@ -133,7 +133,7 @@ public class GuiImagePreview extends EiraGuiScreen implements GuiYesNoCallback {
         if (imgPreview != null) {
             if (!imgPreview.isLoaded()) {
                 String s = I19n.format("eirairc:gui.image.loading");
-                mc.fontRenderer.drawStringWithShadow(s, width / 2 - fontRenderer.getStringWidth(s) / 2, height / 2 - fontRenderer.FONT_HEIGHT / 2, Globals.TEXT_COLOR);
+                mc.fontRendererObj.drawStringWithShadow(s, width / 2 - fontRendererObj.getStringWidth(s) / 2, height / 2 - fontRendererObj.FONT_HEIGHT / 2, Globals.TEXT_COLOR);
             }
 
             // Render the preview image

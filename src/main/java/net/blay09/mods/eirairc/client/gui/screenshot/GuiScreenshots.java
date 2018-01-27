@@ -125,7 +125,7 @@ public class GuiScreenshots extends EiraGuiScreen implements GuiYesNoCallback {
         final int rightX = width / 2 + 145;
         final int topY = height / 2 - 80;
 
-        txtSearch = new GuiAdvancedTextField(0, fontRenderer, leftX + 2, topY - 10, 200, 16);
+        txtSearch = new GuiAdvancedTextField(0, fontRendererObj, leftX + 2, topY - 10, 200, 16);
         txtSearch.setEmptyOnRightClick(true);
         txtSearch.setDefaultText(I19n.format("eirairc:gui.screenshots.search"), true);
         textFieldList.add(txtSearch);
@@ -133,7 +133,7 @@ public class GuiScreenshots extends EiraGuiScreen implements GuiYesNoCallback {
         btnOpenFolder = new GuiButton(0, rightX - 85, topY - 12, 85, 20, I19n.format("eirairc:gui.screenshots.openFolder"));
         buttonList.add(btnOpenFolder);
 
-        txtName = new GuiAdvancedTextField(1, fontRenderer, width / 2 - 100, topY + 152, 200, 15);
+        txtName = new GuiAdvancedTextField(1, fontRendererObj, width / 2 - 100, topY + 152, 200, 15);
         textFieldList.add(txtName);
 
         btnGoToFirst = new GuiImageButton(1, width / 2 - 39, topY + 12, EiraGui.atlas.findRegion("button_first"));
@@ -475,7 +475,7 @@ public class GuiScreenshots extends EiraGuiScreen implements GuiYesNoCallback {
         }
 
         if (isUploading) {
-            drawCenteredString(fontRenderer, I19n.format("eirairc:gui.screenshots.uploading"), width / 2, height / 2, Globals.TEXT_COLOR);
+            drawCenteredString(fontRendererObj, I19n.format("eirairc:gui.screenshots.uploading"), width / 2, height / 2, Globals.TEXT_COLOR);
         }
     }
 

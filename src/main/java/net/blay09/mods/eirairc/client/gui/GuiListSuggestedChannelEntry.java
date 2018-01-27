@@ -15,16 +15,16 @@ public class GuiListSuggestedChannelEntry extends GuiListEntry {
 
     private static final int TEXT_MARGIN = 5;
 
-    private final FontRenderer fontRenderer;
+    private final FontRenderer fontRendererObj;
     private final SuggestedChannel channel;
     private final boolean altBackground;
 
-    public GuiListSuggestedChannelEntry(FontRenderer fontRenderer, SuggestedChannel channel, boolean altBackground) {
-        this.fontRenderer = fontRenderer;
+    public GuiListSuggestedChannelEntry(FontRenderer fontRendererObj, SuggestedChannel channel, boolean altBackground) {
+        this.fontRendererObj = fontRendererObj;
         this.channel = channel;
         this.altBackground = altBackground;
 
-        tooltipList.addAll(fontRenderer.listFormattedStringToWidth(channel.getDescription(), 200));
+        tooltipList.addAll(fontRendererObj.listFormattedStringToWidth(channel.getDescription(), 200));
     }
 
     @Override
@@ -51,16 +51,16 @@ public class GuiListSuggestedChannelEntry extends GuiListEntry {
         if (exclusiveFail) {
             s = "\u00a78" + s;
         }
-        fontRenderer.drawString(s, currentX, currentY, Globals.TEXT_COLOR, true);
-        currentX += fontRenderer.getStringWidth(s) + TEXT_MARGIN;
+        fontRendererObj.drawString(s, currentX, currentY, Globals.TEXT_COLOR, true);
+        currentX += fontRendererObj.getStringWidth(s) + TEXT_MARGIN;
         s = " \u00a7o(" + channel.getServerName() + ")";
         if (exclusiveFail) {
             s = "\u00a78" + s;
         }
-        fontRenderer.drawString(s, currentX, currentY, Globals.TEXT_COLOR);
+        fontRendererObj.drawString(s, currentX, currentY, Globals.TEXT_COLOR);
         if (channel.getScore() > 0 && channel.isRecommended()) {
             s = "\u00a72" + I19n.format("eirairc:gui.welcome.recommended");
-            fontRenderer.drawString(s, x + parentList.getWidth() - fontRenderer.getStringWidth(s) - TEXT_MARGIN, currentY, Globals.TEXT_COLOR, true);
+            fontRendererObj.drawString(s, x + parentList.getWidth() - fontRendererObj.getStringWidth(s) - TEXT_MARGIN, currentY, Globals.TEXT_COLOR, true);
         }
         currentY += 15;
         currentX = x + TEXT_MARGIN + TEXT_MARGIN;
@@ -69,7 +69,7 @@ public class GuiListSuggestedChannelEntry extends GuiListEntry {
             if (exclusiveFail) {
                 s = "\u00a74" + s;
             }
-            fontRenderer.drawString(s, currentX, currentY, Globals.TEXT_COLOR);
+            fontRendererObj.drawString(s, currentX, currentY, Globals.TEXT_COLOR);
         }
     }
 

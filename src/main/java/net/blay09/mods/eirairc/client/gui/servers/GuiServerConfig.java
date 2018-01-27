@@ -80,7 +80,7 @@ public class GuiServerConfig extends GuiTabPage implements GuiYesNoCallback {
         } else {
             oldText = config.getAddress();
         }
-        txtAddress = new GuiAdvancedTextField(0, fontRenderer, leftX, topY + 15, 100, 15);
+        txtAddress = new GuiAdvancedTextField(0, fontRendererObj, leftX, topY + 15, 100, 15);
         txtAddress.setEnabled(!isConnected);
         txtAddress.setText(oldText);
         textFieldList.add(txtAddress);
@@ -92,7 +92,7 @@ public class GuiServerConfig extends GuiTabPage implements GuiYesNoCallback {
         } else {
             oldText = config.getNick();
         }
-        txtNick = new GuiAdvancedTextField(0, fontRenderer, leftX, topY + 55, 100, 15);
+        txtNick = new GuiAdvancedTextField(0, fontRendererObj, leftX, topY + 55, 100, 15);
         txtNick.setDefaultText(Globals.DEFAULT_NICK, false);
         txtNick.setText(oldText);
         textFieldList.add(txtNick);
@@ -116,7 +116,7 @@ public class GuiServerConfig extends GuiTabPage implements GuiYesNoCallback {
         }
         lstChannels = new GuiList<>(this, rightX - 100, topY + 35, 100, 60, 20);
         for (ChannelConfig channelConfig : config.getChannelConfigs()) {
-            lstChannels.addEntry(new GuiListEntryChannel(this, fontRenderer, channelConfig, lstChannels.getEntryHeight()));
+            lstChannels.addEntry(new GuiListEntryChannel(this, fontRendererObj, channelConfig, lstChannels.getEntryHeight()));
         }
         if (oldSelectedIdx < lstChannels.getEntries().size()) {
             lstChannels.setSelectedIdx(oldSelectedIdx);

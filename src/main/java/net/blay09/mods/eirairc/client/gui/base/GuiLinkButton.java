@@ -6,14 +6,14 @@ import net.minecraft.client.gui.GuiButton;
 
 public class GuiLinkButton extends GuiButton {
 
-    private final FontRenderer fontRenderer;
+    private final FontRenderer fontRendererObj;
 
-    public GuiLinkButton(int id, int x, int y, FontRenderer fontRenderer, String displayString) {
+    public GuiLinkButton(int id, int x, int y, FontRenderer fontRendererObj, String displayString) {
         super(id, x, y, displayString);
-        this.fontRenderer = fontRenderer;
+        this.fontRendererObj = fontRendererObj;
 
-        width = fontRenderer.getStringWidth(displayString);
-        height = fontRenderer.FONT_HEIGHT;
+        width = fontRendererObj.getStringWidth(displayString);
+        height = fontRendererObj.FONT_HEIGHT;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class GuiLinkButton extends GuiButton {
             } else if (hovered) {
                 textColor = 16777120;
             }
-            drawCenteredString(fontRenderer, displayString, xPosition + width / 2, yPosition + (height - 8) / 2, textColor);
+            drawCenteredString(fontRendererObj, displayString, xPosition + width / 2, yPosition + (height - 8) / 2, textColor);
         }
     }
 }

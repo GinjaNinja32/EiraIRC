@@ -15,8 +15,8 @@ public class GuiListEntryChannel extends GuiListTextEntry {
     private final ChannelConfig config;
     private TextureRegion icon;
 
-    public GuiListEntryChannel(GuiServerConfig parent, FontRenderer fontRenderer, ChannelConfig config, int height) {
-        super(fontRenderer, config.getName(), height, Globals.TEXT_COLOR);
+    public GuiListEntryChannel(GuiServerConfig parent, FontRenderer fontRendererObj, ChannelConfig config, int height) {
+        super(fontRendererObj, config.getName(), height, Globals.TEXT_COLOR);
         this.parent = parent;
         this.config = config;
 

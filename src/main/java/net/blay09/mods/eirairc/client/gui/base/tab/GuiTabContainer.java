@@ -50,7 +50,7 @@ public class GuiTabContainer extends EiraGuiScreen {
         int curX = menuX;
         int headerY = menuY - 8;
         for (GuiTabPage page : pages) {
-            int titleWidth = Math.max(4, fontRenderer.getStringWidth(page.getTitle()) - 8);
+            int titleWidth = Math.max(4, fontRendererObj.getStringWidth(page.getTitle()) - 8);
             headers.add(new GuiTabHeader(page, curX, headerY, titleWidth + 32, 16));
             curX += titleWidth + 24;
         }

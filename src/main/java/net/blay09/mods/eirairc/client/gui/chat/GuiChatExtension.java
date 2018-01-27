@@ -36,7 +36,7 @@ public class GuiChatExtension {
     public static final int SHOW_HELP_TIME = 100;
 
     private final GuiChat parentScreen;
-    private FontRenderer fontRenderer;
+    private FontRenderer fontRendererObj;
 
     private final List<String> foundIRCNames = Lists.newArrayList();
     private GuiTextField inputField;
@@ -106,10 +106,10 @@ public class GuiChatExtension {
     }
 
     public void initGui(List<GuiButton> buttonList) {
-        fontRenderer = parentScreen.mc.fontRenderer;
+        fontRendererObj = parentScreen.mc.fontRendererObj;
 
         String s = I19n.format("eirairc:gui.options");
-        int bw = parentScreen.mc.fontRenderer.getStringWidth(s) + 20;
+        int bw = parentScreen.mc.fontRendererObj.getStringWidth(s) + 20;
         btnOptions = new GuiButton(0, parentScreen.width - bw, 0, bw, 20, s);
         buttonList.add(btnOptions);
 
@@ -153,7 +153,7 @@ public class GuiChatExtension {
         boolean terminalStyleInput = ClientGlobalConfig.terminalStyleInput.get();
         String terminalChannel = chatSession.getChatTarget() != null ? (chatSession.getChatTarget().getName() + ": ") : null;
         if (terminalStyleInput && terminalChannel != null) {
-            int terminalChannelWidth = parentScreen.mc.fontRenderer.getStringWidth(terminalChannel);
+            int terminalChannelWidth = parentScreen.mc.fontRendererObj.getStringWidth(terminalChannel);
             inputField.xPosition = 4 + terminalChannelWidth;
             inputField.width = parentScreen.width - 4 - terminalChannelWidth;
         } else {
@@ -166,7 +166,7 @@ public class GuiChatExtension {
         boolean terminalStyleInput = ClientGlobalConfig.terminalStyleInput.get();
         String terminalChannel = chatSession.getChatTarget() != null ? (chatSession.getChatTarget().getName() + ": ") : null;
         if (terminalStyleInput && terminalChannel != null) {
-            parentScreen.mc.fontRenderer.drawString(terminalChannel, 4, inputField.yPosition, 14737632);
+            parentScreen.mc.fontRendererObj.drawString(terminalChannel, 4, inputField.yPosition, 14737632);
         }
         if (!ClientGlobalConfig.disableChatToggle.get() && !ClientGlobalConfig.clientBridge.get()) {
             IRCContext target = chatSession.getChatTarget();
@@ -178,14 +178,14 @@ public class GuiChatExtension {
             }
             String helpText = showHelpTime > 0 ? I19n.format("eirairc:gui.shiftToSwitch", Keyboard.getKeyName(ClientGlobalConfig.keyToggleTarget.getKeyCode())) : "";
             String text = I19n.format("eirairc:gui.chatTarget", targetName);
-            int rectWidth = Math.max(200, Math.max(fontRenderer.getStringWidth(helpText), fontRenderer.getStringWidth(text)) + 10);
-            int rectHeight = showHelpTime > 0 ? fontRenderer.FONT_HEIGHT * 2 + 12 : fontRenderer.FONT_HEIGHT + 6;
+            int rectWidth = Math.max(200, Math.max(fontRendererObj.getStringWidth(helpText), fontRendererObj.getStringWidth(text)) + 10);
+            int rectHeight = showHelpTime > 0 ? fontRendererObj.FONT_HEIGHT * 2 + 12 : fontRendererObj.FONT_HEIGHT + 6;
             GuiScreen.drawRect(0, 0, rectWidth, rectHeight, COLOR_BACKGROUND);
-            fontRenderer.drawString(text, 5, 5, Globals.TEXT_COLOR);
+            fontRendererObj.drawString(text, 5, 5, Globals.TEXT_COLOR);
 
             if (showHelpTime > 0) {
                 showHelpTime--;
-                fontRenderer.drawString(helpText, 5, 20, Globals.TEXT_COLOR);
+                fontRendererObj.drawString(helpText, 5, 20, Globals.TEXT_COLOR);
             }
         }
     }
