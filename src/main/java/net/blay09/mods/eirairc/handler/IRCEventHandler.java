@@ -248,6 +248,7 @@ public class IRCEventHandler {
 
         IRCChannelChatEvent event = new IRCChannelChatEvent(connection, channel, sender, rawMessage, message, isEmote, isNotice);
         MinecraftForge.EVENT_BUS.post(event);
+		logger.info(event.getResult());
         switch (event.getResult()) {
             case DEFAULT:
                 GeneralSettings settings = ConfigHelper.getGeneralSettings(channel);

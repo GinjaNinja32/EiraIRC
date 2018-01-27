@@ -47,20 +47,17 @@ public class Utils {
     }
 
     public static void addMessageToChat(ITextComponent chatComponent) {
-        /*if (FMLCommonHandler.instance().getMinecraftServerInstance().getServer() != null && !FMLCommonHandler.instance().getMinecraftServerInstance().getServer().isSinglePlayer()) {
+        if (FMLCommonHandler.instance().getMinecraftServerInstance().getServer() != null && !FMLCommonHandler.instance().getMinecraftServerInstance().getServer().isSinglePlayer()) {
+
+			for (EntityPlayerMP player: FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayers()) {
+				player.sendMessage(translateToDefault(chatComponent));
+			}
+
             FMLCommonHandler.instance().getMinecraftServerInstance().getServer().sendMessage(translateToDefault(chatComponent));
         } else {
             if (Minecraft.getMinecraft().player != null) {
                 Minecraft.getMinecraft().player.sendMessage(chatComponent);
             }
-        }*/
-        
-        try {
-                if (Minecraft.getMinecraft().player != null) {
-                    Minecraft.getMinecraft().player.sendMessage(chatComponent);
-                }
-        } catch (NullPointerException npe) {
-            EiraIRC.logger.error("Utils...getMinecraft() threw NullPointerException", npe);
         }
     }
 
